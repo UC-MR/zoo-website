@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .weather {
+            margin: 0;
+            padding: 0;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <body>
+        <h1>I am a dashboard.</h1>      
+        <div class="weather">
+            <h2>Weather:</h2>
+            <!-- We have passed the weather_data into this page via the render_template call as an additional argument.
+            This allows is to access the data in our HTML file using double curcly brackets to escape from HTML and use the variable as we would in Python-->
+            <p>Location: {{ weather_data['location'] }}</p>
+            <p>Temperature: {{ weather_data['temperature'] }}</p>
+            <!-- We can even escape HTML in the middle of an attribute to set the image file location dynamically -->
+            <p>We are experiencing: {{ weather_data['condition']['text'] }}</p> <img src="{{ weather_data['condition']['icon'] }}"></img>
+            <p>Wind speed: {{ weather_data['wind'] }} </p>
+        </div>
+    </body>
+</html>
